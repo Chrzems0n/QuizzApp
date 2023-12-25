@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         arrayOf("Information Technology","Informatyka Techniczna","Internet Things","Inteligentna Technologia"),
         arrayOf("Program open source to oprogramowanie dostępne tylko dla firm.","Program open source to oprogramowanie płatne.","Program open source to oprogramowanie, którego kod źródłowy jest dostępny publicznie i może być modyfikowany oraz rozpowszechniany przez innych użytkowników.","Odpowiedź: Program open source to oprogramowanie jedynie dla komputerów Mac"),
         arrayOf("Pamięć VRAM, PRAM i SRAM","SRAM, DRAM i SDRAM","Pamięć CDR, DVD-RAM i Blu-ray RAM","Pamięć DDR3, DDR4 i DDR5."),
-        arrayOf("\"HTML\" to skrót od \"High-Throughput Markup Language\"",": \"HTML\" to skrót od \"HyperText Markup Language\"","\"HTML\" to skrót od \"Hyperlink Text Markup Language\"","\"HTML\" to skrót od \"Hypnotic Text Manipulation Language\""),
+        arrayOf("\"HTML\" to skrót od \"High-Throughput Markup Language\""," \"HTML\" to skrót od \"HyperText Markup Language\"","\"HTML\" to skrót od \"Hyperlink Text Markup Language\"","\"HTML\" to skrót od \"Hypnotic Text Manipulation Language\""),
         arrayOf("Odpowiedź: System operacyjny to rodzaj gry komputerowej.","Odpowiedź: System operacyjny to rodzaj przeglądarki internetowej.","Odpowiedź: System operacyjny to rodzaj antywirusa."," System operacyjny to oprogramowanie zarządzające zasobami komputera i umożliwiające uruchamianie innych programów"),
         arrayOf("Jednostka centralna przetwarzania (CPU) to główny procesor komputera, odpowiedzialny za wykonywanie instrukcji i obliczenia","CPU to skrót od \"Central Processing Unit","CPU to rodzaj programu antywirusowego","CPU to rodzaj gry komputerowej"),
         arrayOf("Algorytm to rodzaj kawy","lgorytm to sekwencja kroków lub instrukcji, która określa sposób rozwiązania konkretnego problemu","Algorytm to rodzaj komputera","Algorytm to rodzaj samochodu"),
@@ -66,6 +66,7 @@ class MainActivity : AppCompatActivity() {
         binding.restartButton.setOnClickListener {
             restartQuiz()
         }
+
     }
 
     private fun correctButtonColors(buttonIndex: Int) {
@@ -94,8 +95,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showResults(){
-        Toast.makeText(this,"Your Score: $score out of ${questions.size}", Toast.LENGTH_LONG).show()
+        Toast.makeText(this,"Twój wynik to: $score prawidłowych odpowiedzi na ${questions.size} pytań", Toast.LENGTH_LONG).show()
         binding.restartButton.isEnabled=true
+
     }
 
     private fun displayQuestion(){
