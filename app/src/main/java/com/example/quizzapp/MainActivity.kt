@@ -25,10 +25,10 @@ class MainActivity : AppCompatActivity() {
 
     private  val options = arrayOf(
         arrayOf("Information Technology","Informatyka Techniczna","Internet Things","Inteligentna Technologia"),
-        arrayOf("Program open source to oprogramowanie dostępne tylko dla firm.","Program open source to oprogramowanie płatne.","Program open source to oprogramowanie, którego kod źródłowy jest dostępny publicznie i może być modyfikowany oraz rozpowszechniany przez innych użytkowników.","Odpowiedź: Program open source to oprogramowanie jedynie dla komputerów Mac"),
+        arrayOf("Program open source to oprogramowanie dostępne tylko dla firm.","Program open source to oprogramowanie płatne.","Program open source to oprogramowanie, którego kod źródłowy jest dostępny publicznie i może być modyfikowany oraz rozpowszechniany przez innych użytkowników.","Program open source to oprogramowanie jedynie dla komputerów Mac"),
         arrayOf("Pamięć VRAM, PRAM i SRAM","SRAM, DRAM i SDRAM","Pamięć CDR, DVD-RAM i Blu-ray RAM","Pamięć DDR3, DDR4 i DDR5."),
         arrayOf("\"HTML\" to skrót od \"High-Throughput Markup Language\""," \"HTML\" to skrót od \"HyperText Markup Language\"","\"HTML\" to skrót od \"Hyperlink Text Markup Language\"","\"HTML\" to skrót od \"Hypnotic Text Manipulation Language\""),
-        arrayOf("Odpowiedź: System operacyjny to rodzaj gry komputerowej.","Odpowiedź: System operacyjny to rodzaj przeglądarki internetowej.","Odpowiedź: System operacyjny to rodzaj antywirusa."," System operacyjny to oprogramowanie zarządzające zasobami komputera i umożliwiające uruchamianie innych programów"),
+        arrayOf("System operacyjny to rodzaj gry komputerowej.","System operacyjny to rodzaj przeglądarki internetowej.","System operacyjny to rodzaj antywirusa."," System operacyjny to oprogramowanie zarządzające zasobami komputera i umożliwiające uruchamianie innych programów"),
         arrayOf("Jednostka centralna przetwarzania (CPU) to główny procesor komputera, odpowiedzialny za wykonywanie instrukcji i obliczenia","CPU to skrót od \"Central Processing Unit","CPU to rodzaj programu antywirusowego","CPU to rodzaj gry komputerowej"),
         arrayOf("Algorytm to rodzaj kawy","lgorytm to sekwencja kroków lub instrukcji, która określa sposób rozwiązania konkretnego problemu","Algorytm to rodzaj komputera","Algorytm to rodzaj samochodu"),
         arrayOf("Systemy operacyjne to tylko dostępne w Chinach","Systemy operacyjne to tylko dostępne w kosmosie","Systemy operacyjne to tylko dostępne w przeszłości","Trzy popularne systemy operacyjne to: Windows, macOS i Linux"),
@@ -135,6 +135,11 @@ class MainActivity : AppCompatActivity() {
                     displayQuestion()
                 } else {
                     showResults()
+                    // Zablokuj przyciski po udzieleniu odpowiedzi na ostatnie pytanie
+                    binding.optionButton1.isEnabled = false
+                    binding.optionButton2.isEnabled = false
+                    binding.optionButton3.isEnabled = false
+                    binding.optionButton4.isEnabled = false
                 }
             }
             override fun onAnimationRepeat(animation: Animation) {}
@@ -148,13 +153,18 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+
     //restartowanie quizu - powrot do pierwszego pytania resetowanie score
     private fun restartQuiz(){
         currentQuestionIndex =0
         score =0
         displayQuestion()
        // resetButtonColors()
-        binding.restartButton.isEnabled = false
+        binding.restartButton.isEnabled = true
+        binding.optionButton1.isEnabled = true
+        binding.optionButton2.isEnabled = true
+        binding.optionButton3.isEnabled = true
+        binding.optionButton4.isEnabled = true
     }
 
     //zapis score do state by przy obracaniu ekranu nie tracic postępów
